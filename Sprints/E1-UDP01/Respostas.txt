@@ -1,0 +1,27 @@
+CA1: por que o UDP permite desordenação.
+
+Porque o protocologo UDP envia e esqueceçe da mensagem enviada, não havendo nenhuma ordenação previa.
+
+CA2: papel do socket, porto, buffer, comprimento, endereço e porto de origem.
+
+Socket: Porta lógica que conecta a aplicação à rede.
+
+Porto: Numero da porta lógica
+
+Buffer: Memoria temporária
+
+COmprimento: Tamanho exato do tamanho da mensagem
+
+Endereço e porto de origem: Identificadores do remetente da mensagem
+
+CA3: formato N,mensagem, estado L e regra N == L+1.
+
+Forma de adicionar fiabilidade ao UDP.
+
+CA4: interpretação da sequência 1,3,2,3.
+
+Esta sequencia seria uma sequencia desordenada enviada para o servidor
+
+CA5: limitações com duplicação, perda e múltiplos clientes.
+
+As mensagens duplicadas são descartadas. Se um pacote perdese a aplicação fica infinitamente a espera e quando existem multiplos clientes a existencia de um L global vai criar um problema ond eo servidor nao sabe de qual cliente é o L.
