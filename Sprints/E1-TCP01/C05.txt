@@ -1,0 +1,19 @@
+1. O TCP garante que os bytes chegam intactos e por ordem. Que problemas encontrou nesta ficha que não eram problemas de transmissão? Quem tinha de os resolver?
+
+O TCP só transporta os bytes. Problemas como NotSerializableException, InvalidClassException e a incompatibilidade de pacotes são falhas da camada de aplicação. Ou seja, o problema tem de ser resolvido no código
+
+2. Neste trabalho copiou classes entre dois projetos. Numa aplicação real com vários clientes instalados em máquinas diferentes, o que acontece quando o servidor muda a Person? Que papel tem o serialVersionUID nessa situação?
+
+O serialVersionUID dita a versão da classe: se for diferente entre cliente e servidor, a comunicação é logo rejeitada. Manter o mesmo valor permite fazer alterações compatíveis, mas atenção: alterações estruturais incompatíveis vão continuar a falhar.
+
+3. A serialização automática envia todo o grafo de objetos alcançável. Que riscos isso traz — em volume de dados e em informação enviada sem querer?
+
+A serialização envia tudo o que está agarrado ao objeto. O risco é encher a rede com peso extra e enviar dados sensíveis sem querer. A serialização base não tem como impedir isto automaticamente.
+
+4. Compare o custo de uma thread por ligação com o de atender os clientes um de cada vez: o que ganha o servidor, e o que passa a gastar?
+
+Com threads, atendemos tudo em simultâneo. O preço a pagar é que consome mais RAM e dá mais trabalho ao CPU. Atender um a um poupa a máquina, mas os clientes desesperam na fila.
+
+5. Em que situações continuaria a preferir datagramas a streams, mesmo sabendo das garantias que perde? Dê um exemplo diferente do video streaming.
+
+UDP é melhor quando a rapidez importa mais do que a garantia de entrega, ou para enviar dados para todos ao mesmo tempo (Broadcast/Multicast). Exemplo: Jogos online tipo CS:GO ou Valorant. Se um pacote com a tua posição se perder, não faz mal, no instante seguinte já chega a posição atualizada. Esperar pelo reenvio do TCP só iria gerar lag.
