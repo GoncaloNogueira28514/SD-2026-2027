@@ -5,7 +5,7 @@ import java.net.*;
 import java.nio.charset.StandardCharsets;
 import java.util.TreeMap;
 
-public class MulticastReplica {
+public class MulticastLeader {
     static final String GROUP = "230.0.0.1";
     static final int PORT = 6789;
 

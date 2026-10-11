@@ -1,0 +1,19 @@
+Desempenho: O Multicast foi mais rápido e teve maior débito. No Multicast, o tempo é apenas o envio e receção no socket. No PubSub, o tempo é maior porque passa pelo HTTP, pelo daemon do líder, pela rede IPFS e pelo daemon da réplica.
+
+
+Escalabilidade: No Multicast, o custo do líder é o mesmo para 3 ou 300 réplicas, mas não funciona na Internet. No PubSub, com 300 réplicas o tráfego de rede aumenta muito devido ao reencaminhamento entre nós, mas funciona bem pela Internet.
+
+
+Fiabilidade: O PubSub perdeu mais registos na rajada devido à sobrecarga no daemon. O número de sequência serviu para detetar as falhas e os buracos, mas não resolveu o problema sozinho.
+
+
+Recuperação: Para a réplica recuperar os dados perdidos sozinha, faltava um mecanismo de histórico ou de pedido de retransmissão. Esse mecanismo não cabia no âmbito desta ficha.
+
+
+Dependências e alcance: Para um único edifício, o Multicast é melhor porque só precisa da JVM. Para várias cidades, o PubSub é necessário porque o IPFS atravessa a Internet, apesar de exigir o daemon a correr.
+
+
+Ponto único de falha: Nenhuma das soluções resolve a falha do líder. Se dois nós escrevessem ao mesmo tempo sem um algoritmo de coordenação, haveria conflitos e corrupção de dados.
+
+
+Segurança: As réplicas aceitam qualquer mensagem sem validar a origem. O campo from do IPFS só ajudaria se a aplicação verificasse assinaturas digitais no código.
