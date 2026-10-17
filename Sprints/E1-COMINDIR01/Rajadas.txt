@@ -1,0 +1,4 @@
+Execução	Sequências	Duração
+1	        18–1017	    1153 ms
+2	        1018–2017	654 ms
+3	        2018–3017	620 ms
