@@ -1,0 +1,4 @@
+# Copia este ficheiro para bot.properties e preenche os valores.
+# O bot.properties estÃ¡ no .gitignore: nÃ£o o adiciones ao repositÃ³rio.
+DISCORD_TOKEN=YOUR_DISCORD_BOT_TOKEN
+DISCORD_GUILD_ID=587322383841361959

@@ -1,0 +1,10 @@
+# Build e IDE
+target/
+.idea/
+.vscode/
+*.iml
+
+# Segredos: nunca vão para o repositório
+bot.properties
+.env
+master.key
