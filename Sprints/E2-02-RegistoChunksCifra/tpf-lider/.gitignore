@@ -1,0 +1,16 @@
+# Build e IDE
+target/
+.idea/
+.vscode/
+*.iml
+
+# Segredos: nunca vão para o repositório
+bot.properties
+.env
+master.key
+
+# Dados do líder, gerados em execução
+registos.log
+eventos-lider.txt
+selados/
+.selagem.tmp
